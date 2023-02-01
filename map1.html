@@ -9,7 +9,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
     <style>
          body {
-             margin: 0;
+            margin: 0;
             padding: 0;
         }
 
@@ -26,12 +26,13 @@
     <div id="map"></div>
     <script>
         mapboxgl.accessToken =
-            'pk.eyJ1IjoibnlhZGF2OCIsImEiOiJjbGRtOWJoNXQwMWxmM29vNGtjYm82bWg0In0.YJeqlAttyH5UPgOCIsnGxQ';
+            'pk.eyJ1IjoibnlhZGF2OCIsImEiOiJjbGRtOWRmYnAwNzBmM3dxdXdrbjdra3Y2In0.dx20fSL0-kbtiJ4hP5Dk7g';
         let map = new mapboxgl.Map({
             container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/streets-v12', // style URL for easy visualization
+            style: 'mapbox://styles/mapbox/dark-v10', // style URL for easy visualization
             center: [47.61, -122.32], // starting position: Seattle [lng, lat]
-            zoom: 9 // starting zoom
+            zoom: 5, // starting zoom
+            minZoom: 4
         });
     </script>
 
