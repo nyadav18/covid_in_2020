@@ -1,1 +1,1 @@
-# covid_in_2020
+# geogcovidmaps
