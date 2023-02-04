@@ -29,14 +29,12 @@
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
             center: [-96.9, 37.8], // starting position [lng, lat]
-            zoom: 4 // starting zoom
+            zoom: 4, // starting zoom
+            minZoom: 4
         });
-        const cases = [100000, 200000, 300000, 400000, 500000, 600000, 7000000, 800000],
-        //const cases = ["<100000", "100000-200000", "200001-300000", "300001-400000", "400001-500000",
-        //                "500001-600000", "600001-700000", ">700001"],
-                colors = ['rgb(252,251,253)','rgb(239,237,245)','rgb(218,218,235)','rgb(188,189,220)','rgb(158,154,200)',
-                          'rgb(128,125,186)','rgb(106,81,163)','rgb(74,20,134)'],
-                radii = [5, 10, 15, 20, 25, 30, 35, 40];
+        const cases = [1000, 2000, 3000, 4000, 50000],
+              colors = ['rgb(242,240,247)','rgb(203,201,226)','rgb(158,154,200)','rgb(117,107,177)','rgb(84,39,143)'],
+              radii = [2, 4, 6, 8, 10];
 
         map.on('load', function loadingdata() {
             map.addSource('counts', {
@@ -48,7 +46,7 @@
                 'id': 'case-point',
                 'type': 'circle',
                 'source': 'counts',
-                'minzoom': 5,
+
                 'paint': {
                     // increase the radii of the circle as the zoom level and dbh value increases
                     'circle-radius': {
@@ -58,10 +56,7 @@
                             [cases[1], radii[1]],
                             [cases[2], radii[2]],
                             [cases[3], radii[3]],
-                            [cases[4], radii[4]],
-                            [cases[5], radii[5]],
-                            [cases[6], radii[6]],
-                            [cases[7], radii[7]]
+                            [cases[4], radii[4]]
                         ]
                     },
                     'circle-color': {
@@ -71,10 +66,7 @@
                             [cases[1], colors[1]],
                             [cases[2], colors[2]],
                             [cases[3], colors[3]],
-                            [cases[4], colors[4]],
-                            [cases[5], colors[5]],
-                            [cases[6], colors[6]],
-                            [cases[7], colors[7]]
+                            [cases[4], colors[4]]
                         ]
                     },
                     'circle-stroke-color': 'white',
