@@ -18,11 +18,60 @@
             bottom: 0;
             width: 100%;
         }
+
+
+        /* the layout of the legend panel */
+        #legend {
+            position: absolute;
+            bottom: 50px;
+            right: 0;
+            height: 350px;
+            width: 150px;
+            background: #fff;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            padding: 10px 20px 10px 10px;
+            border-radius: 50px;
+            text-align: center;
+        }
+
+        /* each line for a break */
+        .break {
+            position: relative;
+            margin: 0px;
+            padding: 10px;
+        }
+
+        /* basic style for a dot/circle */
+        .dot {
+            position: relative;
+            display: grid;
+            margin-top: 10px;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        /* the label for the dot */
+        .dot-label {
+            position: relative;
+            top: 0px;
+            text-align: right;
+            right: 0;
+            font-style: italic;
+        }
+
+        /* the text color of a hyper link */
+        a {
+            color: black
+        }
+
+
     </style>
 </head> 
 
 <body>
     <div id="map"></div>
+    <div id="legend"></div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoibnlhZGF2OCIsImEiOiJjbGRtOWJoNXQwMWxmM29vNGtjYm82bWg0In0.YJeqlAttyH5UPgOCIsnGxQ';
         let map = new mapboxgl.Map({
@@ -32,9 +81,9 @@
             zoom: 4, // starting zoom
             minZoom: 4
         });
-        const cases = [1000, 2000, 3000, 4000, 50000],
+        const cases = [1, 1181, 2314, 5454, 756412],
               colors = ['rgb(242,240,247)','rgb(203,201,226)','rgb(158,154,200)','rgb(117,107,177)','rgb(84,39,143)'],
-              radii = [2, 4, 6, 8, 10];
+              radii = [5, 10, 15, 18, 20];
 
         map.on('load', function loadingdata() {
             map.addSource('counts', {
@@ -51,6 +100,7 @@
                     // increase the radii of the circle as the zoom level and dbh value increases
                     'circle-radius': {
                         'property': 'cases',
+                        'type': 'exponential',
                         'stops': [
                             [cases[0], radii[0]],
                             [cases[1], radii[1]],
@@ -82,8 +132,27 @@
                     .setHTML(`<strong>Cases:</strong> ${event.features[0].properties.cases}`)
                     .addTo(map);
             });
-
         });
+
+        const legend = document.getElementById('legend');
+
+        var labels = ['<strong>Cases</strong>'], vbreak;
+
+        for (var i = 0; i < cases.length; i++) {
+            vbreak = cases[i];
+
+            dot_radius = 2 * radii[i];
+            labels.push(
+                '<p class="break"><i class="dot" style="background:' + colors[i] + '; width: ' + dot_radius +
+                'px; height: ' +
+                dot_radius + 'px; "></i> <span class="dot-label" style="top: ' + dot_radius / 2 + 'px;">' + vbreak +
+                '</span></p');
+        }
+
+        const source = 
+            '<p style ="text-align: left; font-size:10pt">Source: <a href="https://github.com/nytimes/covid-19-data/blob/43d32dde2f87bd4dafbb7d23f5d9e878124018b8/live/us-counties.csv">New York Times</a></p>';
+
+        legend.innerHTML = labels.join('') + source;
 
     </script>
 </body>
