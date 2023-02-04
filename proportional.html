@@ -21,6 +21,30 @@
         }
 
 
+        #title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 20px;
+            margin-left: 20px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 25pt;
+            color: black
+        }
+
+
+        #subtitle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 70px;
+            margin-left: 190px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15pt;
+            color: black
+        }
+
+
         /* the layout of the legend panel */
         #legend {
             position: absolute;
@@ -74,6 +98,12 @@
 <body>
     <div id="map"></div>
     <div id="legend"></div>
+    <div id="title">
+        Number of Covid Cases by County
+    </div>
+    <div id="subtitle">
+        in 2020
+    </div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoibnlhZGF2OCIsImEiOiJjbGRtOWJoNXQwMWxmM29vNGtjYm82bWg0In0.YJeqlAttyH5UPgOCIsnGxQ';
         let map = new mapboxgl.Map({

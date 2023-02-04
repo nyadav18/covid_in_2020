@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+#title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25pt;
+    color: black
+}
+
+
+#subtitle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 70px;
+    margin-left: 190px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15pt;
+    color: black
+}
+
+
+/* the layout of the legend panel */
+#legend {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    height: 350px;
+    width: 150px;
+    background: #fff;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding: 10px 20px 10px 10px;
+    border-radius: 50px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* each line for a break */
+.break {
+    position: relative;
+    margin: 0px;
+    padding: 10px;
+}
+
+/* basic style for a dot/circle */
+.dot {
+    position: relative;
+    display: grid;
+    margin-top: 10px;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+/* the label for the dot */
+.dot-label {
+    position: relative;
+    top: 0px;
+    text-align: right;
+    right: 0;
+    font-style: italic;
+}
+
+/* the text color of a hyper link */
+a {
+    color: black
+}
