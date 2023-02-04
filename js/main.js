@@ -2,7 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibnlhZGF2OCIsImEiOiJjbGRtOWJoNXQwMWxmM29vNGtjY
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [-96.9, 37.8], // starting position: Seattle [lng, lat]
+    center: [-96.9, 37.8], // starting position [lng, lat]
     zoom: 4 // starting zoom
 });
 
