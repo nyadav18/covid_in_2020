@@ -1,5 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibnlhZGF2OCIsImEiOiJjbGRtOWJoNXQwMWxmM29vNGtjYm82bWg0In0.YJeqlAttyH5UPgOCIsnGxQ';
-let map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
     center: [-96.9, 37.8], // starting position: Seattle [lng, lat]
