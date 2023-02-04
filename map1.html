@@ -32,10 +32,10 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            background: rgb(143, 188, 139);
+            background: rgb(204, 118, 97);
             border-style: solid;
             border-width: 1px;
-            border-color: rgb(85, 107, 47);
+            border-color: rgb(72, 12, 5);
             margin-left: 20px;
             font-family: 'Times New Roman', serif;
             overflow: auto;
@@ -49,11 +49,12 @@
         }
         #legend {
             padding: 10px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 2px rgba(172, 42, 42, 0.1);
             line-height: 18px;
             height: 210px;
             margin-bottom: 40px;
             width: 150px;
+            background: #fff
         }
 
         .legend-key {
@@ -63,6 +64,11 @@
             height: 10px;
             margin-right: 5px;
         }
+
+        a {
+            color: black;
+        }
+
         .mapboxgl-canvas-container.mapboxgl-interactive,
         .mapboxgl-ctrl-group button.mapboxgl-ctrl-compass {
             cursor: unset;
@@ -73,7 +79,7 @@
 
 <body>
     <div id="map"></div>
-    <div class='map-overlay' id ='features'>
+    <div class='map-overlay' id="features">
         <h2>Covid Rates</h2>
         <div id='text-description'>
             <p>Hover over a county!</p>
@@ -163,6 +169,11 @@
                 item.appendChild(value);
                 legend.appendChild(item);
             });
+
+            const source = 
+                '<p style ="text-align: left; font-size:10pt">Source: <a href="https://github.com/nytimes/covid-19-data/blob/43d32dde2f87bd4dafbb7d23f5d9e878124018b8/live/us-counties.csv">New York Times</a></p>';
+            
+            legend.innerHTML += source;
 
             map.on('mousemove', ({point}) => {
                 const county = map.queryRenderedFeatures(point, {
