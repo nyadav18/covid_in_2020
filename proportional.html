@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Covid 2020 Counts</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
     <style>
@@ -33,6 +34,7 @@
             padding: 10px 20px 10px 10px;
             border-radius: 50px;
             text-align: center;
+            font-family: 'Open Sans', sans-serif;
         }
 
         /* each line for a break */
@@ -136,10 +138,10 @@
 
         const legend = document.getElementById('legend');
 
-        var labels = ['<strong>Cases</strong>'], vbreak;
+        var labels = ['<strong>Number of Cases</strong>'], vbreak;
 
         for (var i = 0; i < cases.length; i++) {
-            vbreak = cases[i];
+            vbreak = "at least " + cases[i];
 
             dot_radius = 2 * radii[i];
             labels.push(
@@ -150,7 +152,7 @@
         }
 
         const source = 
-            '<p style ="text-align: left; font-size:10pt">Source: <a href="https://github.com/nytimes/covid-19-data/blob/43d32dde2f87bd4dafbb7d23f5d9e878124018b8/live/us-counties.csv">New York Times</a></p>';
+            '<p style ="text-align: center; font-size:10pt">Source: <a href="https://github.com/nytimes/covid-19-data/blob/43d32dde2f87bd4dafbb7d23f5d9e878124018b8/live/us-counties.csv">New York Times</a></p>';
 
         legend.innerHTML = labels.join('') + source;
 
