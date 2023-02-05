@@ -70,10 +70,9 @@ body {
 /* the label for the dot */
 .dot-label {
     position: relative;
-    top: 0px;
-    text-align: right;
-    right: 0;
-    font-style: italic;
+    top: 5px;
+    text-align: center;
+    font-style: italic
 }
 
 /* the text color of a hyper link */
